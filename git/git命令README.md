@@ -121,4 +121,36 @@ git checkout -b branch_name
 git branch -d "" 非强制性删除 会有提示信息
 
 #### git diff
+因为现在我们的ide编辑器都带有这个review所以我们使用这个git diff比较少
+
+#### 添加到远程仓库 创建仓库
+git remote add origin "地址"
+
+git push -u origin master
+第一次是-u是强制性的
+
+
+du -h .git/objects
+
+
+git gc 进行压缩之后objects内容就可以不是那么大了 之后会在packs
+
+#### SHA1
+不同的文件和内容可以得到相同的hash
+
+
+#### 如何查看pack中的内容
+git verify-pack -v ./git/objects/pack/pack-ewerew
+后面是路径
+
+
+#### 如果我们不知道git 某个命令怎么用的时候我们可以
+使用 git help 后面跟上的是命令关键词
+eg git help unpack-objects
+
+
+####s git merge 合并分支
+
+
+#### git rebase
 
