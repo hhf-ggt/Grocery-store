@@ -1,0 +1,232 @@
+1.js的预编译
+
+    1.1 什么是预编译？
+
+    eg:
+      我们先定义好一个test的函数，然后按道理在定义之前执行改函数应该不行，但是 事实上它执行了，因为它在执行前 搞了预编译
+      test();
+      function test() {
+        var a = 1;
+        console.log(a);
+      }
+      // 执行的结果是打印了1  
+
+      var a = 1;
+      console.log(a);
+      // 打印1
+
+      console.log(a);
+      var a = 1;
+      // 打印undefined;
+
+      console.log(a)
+      // 打印 报错 a is not defined;
+
+
+2.函数声明整体提升，变量声明提升;
+
+    var a = 123;
+    // 相当于 var a;
+             a = 123;
+             然后可以将a 提升到最前面;
+    // 这个过程是变量声明并且 变量赋值
+
+3.全局变量
+    imply global 
+    任何的变量未经申明就使用的就为全局变量
+
+    一切声明的全局变量都是window的属性
+    a = 10; 则window.a = 10;
+    window 就是全局的域
+4.变量名称和函数名称相同的时候覆盖的情况
+
+
+5.（预编译是发生在函数执行前的操作）预编译的第一步是创建一个AO对象
+  5.1
+      AO activation object(执行期上下文--- 活跃对象)
+
+      AO: { 
+
+      }
+  5.2 找到 形式参数和变量 去放在ao对象中当作key 值赋值为undefined
+
+  5.3 将实际参数和形式参数做统一
+
+  5.4 找函数声明 函数名为key  函数体为value
+
+
+
+
+------------------------------------------------------------------------------------------
+练习1
+  eg: 
+  function fn(a) {
+    console.log(a);
+    var a = 123;
+    console.log(a);
+    function a() {};
+    console.log(a);
+    var b = function() {};
+    console.log(b);
+    function d() {};
+  }
+  fn(1);
+
+  1.我们去创建一个ao对象
+  ao {
+
+  }
+
+  2. 找出函数中的变量和形式参数然
+  //变量a 还有形式参数a 以及函数表达式的b 因为形式参数和变量同名所以只会去创建一个
+  ao {
+    a: undefined
+    b: undefined
+  }
+
+  3.将实际参数和形式参数统一
+  // 因为在调用函数的时候传入的参数为1
+  ao {
+    a: 1
+    b: undefined
+  }
+
+  4.找函数声明
+  ao {
+    a: function() {}
+    b:undefined
+    d: function () {}
+  }
+
+  5.然后开始执行函数从上到下：
+
+    第一个console.log(a)  打印为 function () {} 因为ao中的a此时就是 函数
+
+    第二个打印之前 重新对a 进行了赋值 ao 中的值发生了变化
+    ao {
+       a: 123
+      b:undefined
+      d: function () {}
+    }
+    所以值是123
+
+    第四个 也是123
+
+    打印第五个的时候我们将 function () {}赋值给b 此时打印b 则为function () {}
+
+    以上就是这个作用域的过程了
+
+
+  function test(a, b) {
+  console.log(a);
+  // 1
+  c = 0;
+  var c;
+  a = 3;
+  b = 2;
+  console.log(b);
+  // 2
+  function b () {};
+  function d () {};
+  console.log(b); 
+  // 2
+}
+test(1);       
+
+function test(a, b) {
+  console.log(a);
+  c = 0;
+  var c;
+  a = 3;
+  b = 2;
+  console.log(b);
+  function b () {};
+  function d () {};
+  console.log(b); 
+}
+test(1);                                                                                                                                                                                                                                                                                 
+------------------------------------------------------------------------------------------
+练习2:
+  2.1创建ao对象
+  ao {
+
+  }
+
+  2.2 将变量和形式参数放入ao中
+
+  ao {
+    a: undefined
+    b: undefined
+    c: undefined
+  }
+
+  2.3 将形式参数和实际参数统一
+
+  ao {
+    a: 1
+    b: undefined
+    c: undefined
+  }
+
+  2.4 将函数声明
+  ao {
+    a: 1
+    b: function () {}
+    c: undefined
+    d: function () {}
+  }
+
+  2.5执行函数
+  ao {
+    a: 3
+    b: 2
+    c: 0
+    d: function () {}
+  }     
+
+
+------------------------------------------------------------------------
+练习3
+function test (a, b) {
+  console.log(a);
+  // function(){}
+  console.log(b);
+  // undefined
+
+  var b = 234;
+  console.log(b);
+  // 234
+  a = 123;
+
+  console.log(a);
+  // 123
+  function a () {}
+
+  var a;
+  b = 234;
+  var b = function () {}
+  console.log(a);
+  // 123
+  console.log(b);
+  // function() {}
+}
+
+test(1);
+
+ao {
+    a: function() {}
+    b: 234
+}
+
+
+
+全局的域是一个go 是一个global object
+
+如果遇到🈶️判断 不用管它 直接将判断内的变量声明的可以提升
+
+
+
+1.创建ao对象
+2.找变量 和 形式参数 放入到ao对象中初始值为undefined
+3.将形参和实际参数统一，将函数声明也挂在ao对象上
+4.从上到下执行函数 然后依次看值的变化
