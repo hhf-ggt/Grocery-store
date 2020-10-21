@@ -48,3 +48,15 @@ function mockNew() {
     // 返回对象
     return resultObj;
 }
+
+
+function Monther(lastName) {
+    this.lastName = lastName;
+}
+var son = new Monther('da');
+
+//1.创建一个对象 son
+//2.新对象会被执行[[prototype]]链接 son__proto__ = Monther.prototpe
+//3.新对象和函数调用的this会绑定起来 Monther.call(son, 'da')
+//4.执行构造函数中的代码 son.lastName 
+//5.如果函数没有返回值，那么就会自动返回这个对象 return this

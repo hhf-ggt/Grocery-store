@@ -1,0 +1,11 @@
+function Supermarket(){
+
+}
+Supermarket.prototype.product = "烟"
+
+function Shop() {}
+
+Shop.prototype = new Supermarket();
+
+var personal = new Shop();
+console.log(product);
