@@ -1,0 +1,18 @@
+1.arr.push(element1, ..., elementN)
+当我们掉用这个方法的时候会返回一个新的length属性
+
+eg：
+    const animals = ['pigs', 'goats', 'sheep'];
+    const count = animals.push('cows');
+    console.log(count);
+    // 返回的是4
+    console.log(animals);
+    // 返回的是被改变完的数组
+    
+配合着apply方法我们可以使用push来合并两个数组
+eg:
+    var vegetables = ['parsnip', 'potato'];
+    var moreVegs = ['celery', 'beetroot'];
+    Array.prototype.push.apply(vegetables, moreVegs);
+    console.log(vegetables); 
+    // ['parsnip', 'potato', 'celery', 'beetroot']    

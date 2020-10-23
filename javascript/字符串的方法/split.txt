@@ -1,0 +1,25 @@
+split() 方法使用指定的分隔符字符串将一个String对象分割成子字符串数组，以一个指定的分割字串来决定每个拆分的位置。 
+const str = 'The quick brown fox jumps over the lazy dog.';
+const words = str.split(' ');
+// console.log(words[3]);
+//fox
+语法：
+    str.split([separator[, limit]])
+    1.第二个参数是一个limit 可以指定只找前几个的样子 可以限制返回值只能够分割元素数量
+        eg：
+            var myString = "Hello World. How are you doing?";
+            var splits = myString.split(" ", 3);
+            console.log(splits);
+    2.靠正则来分割使结果中包含分割块
+        eg:
+            var myString = "Hello 1 word. Sentence number 2.";
+            var splits = myString.split(/(\d)/);
+            console.log(splits);
+    3.使用一个数组来作为分隔符
+        eg:
+            const myString = 'this|is|a|Test';
+            const splits = myString.split(['|']);
+            console.log(splits); //["this", "is", "a", "Test"]        
+    4.使用split来进行数组的逆置
+        const str = 'asdfghjkl';
+        const strReverse = str.split('').reverse().join(''); // 'lkjhgfdsa'

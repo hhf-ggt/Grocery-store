@@ -1,0 +1,9 @@
+join() 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个项目，那么将返回该项目而不使用分隔符。separator
+返回值：一个所有元素连接的字符串，如果数组的length为0，则返回空字符串
+eg:
+    如果什么都不传默认则是',',如果有传的话 就按照指定的字符来连接
+    const elements = ['Fire', 'Air', 'Water'];
+    console.log(elements.join());
+    // "Fire,Air,Water"
+语法：    
+    arr.join([separator])6

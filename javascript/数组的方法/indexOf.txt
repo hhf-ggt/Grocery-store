@@ -1,0 +1,29 @@
+indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
+
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// expected output: 1
+
+// start from index 2
+console.log(beasts.indexOf('bison', 2));
+// expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// expected output: -1
+
+arr.indexOf(searchElement[, fromIndex])
+
+string也可以使用
+
+eg: 
+    var array = [2, 5, 9];
+    array.indexOf(2);     // 0
+    array.indexOf(7);     // -1
+    array.indexOf(9, 2);  // 2
+    array.indexOf(2, -1); // -1
+    array.indexOf(2, -3); // 0  
+
+    如果第二个数字是负数的话可以使用数组的length加上这个负数然后开始找，如果是大于这个数组的长度的直接返回-1
+
+    Array.prototype.lastIndexOf()

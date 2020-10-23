@@ -1,0 +1,50 @@
+reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+    const array1 = [1, 2, 3, 4];
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    // 1 + 2 + 3 + 4
+    console.log(array1.reduce(reducer));
+    // expected output: 10
+    // 5 + 1 + 2 + 3 + 4
+    console.log(array1.reduce(reducer, 5));
+    // expected output: 15
+
+reducer函数接收四个参数：
+    1.Accumlator(acc)(累计器)
+    2.Current Value(cur)(当前值)
+    3.Current Index(inx)(当前索引)
+    4.Source Array(src)(源数组)
+
+语法：
+    arr.reduce(callback(accumlator, currentValue[, index[array]])[, initialValue])
+    
+设置默认值 可以避免错误
+
+求数组中出现次数最多的元素
+    var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+    
+    var countedNames = names.reduce(function (allNames, name) { 
+      if (name in allNames) {
+        allNames[name]++;
+      }
+      else {
+        allNames[name] = 1;
+      }
+      return allNames;
+    }, {});
+    // countedNames is:
+    // { 'Alice': 2, 'Bob': 1, 'Tiff': 1, 'Bruce': 1 }    
+
+数组去重
+    let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+    let myOrderedArray = myArray.reduce(function (accumulator, currentValue) {
+      if (accumulator.indexOf(currentValue) === -1) {
+        accumulator.push(currentValue)
+      }
+      return accumulator
+    }, [])
+    
+    console.log(myOrderedArray)    
+ 使用set的方式进行数组去重
+ let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd'];
+ let arr = Array.from(new set(myArray));
+ //利用set的不可重复性进行去重

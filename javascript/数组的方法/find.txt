@@ -1,0 +1,27 @@
+ find() 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+ find方法不会改变数组
+ const array1 = [5, 12, 8, 130, 44];
+
+const found = array1.find(element => element > 10);
+// 遇到满足条件的就返回来满足条件的值 程序也不会往下执行了
+
+console.log(found);
+// expected output: 12
+
+
+findIndex() 它返回数组中找到的元素索引，而不是其值
+
+arr.find(callback[, thisArg])
+
+eg:
+    var inventory = [
+        {name: 'apples', quantity: 2},
+        {name: 'bananas', quantity: 0},
+        {name: 'cherries', quantity: 5}
+    ];
+
+    function findCherries(fruit) { 
+        return fruit.name === 'cherries';
+    }
+
+    console.log(inventory.find(findCherries)); // { name: 'cherries', quantity: 5 }

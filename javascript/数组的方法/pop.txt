@@ -1,0 +1,12 @@
+***改变原数组
+*** 返回被删除的那一项
+**** 如果是空数组返回undefined
+pop方法从数组中删除最后一个元素，并返回该元素的值，此方法改变数组的长度
+eg:
+    const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+    const res = plants.pop();
+    console.log(plants);
+    //["broccoli", "cauliflower", "cabbage", "kale"]
+    console.log(res);
+    //"tomato"
+    当数组为空的时候返回undefined

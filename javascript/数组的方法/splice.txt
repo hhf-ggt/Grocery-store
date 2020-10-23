@@ -1,0 +1,19 @@
+***改变原数组
+*** 返回被修改的内容 
+如果是删除 则返回包含被删除的那项的数组，如果没有删除元素则返回空数组
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+console.log(months);
+//Array ["Jan", "Feb", "March", "April",'June'];
+
+months.splice(4, 1, 'May');
+// replaces 1 element at index 4
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
+// 三个参数的意思
+// 第一个是从下标为哪开始
+// 第二个是删除几位 0意思就是删除0个 其实就是插入的意思
+// 第三个是替换为什么元素
+
+语法：
+    array.splice(start[, deleteCount[, item1[, item2[, ...]]]])

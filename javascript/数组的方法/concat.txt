@@ -1,0 +1,20 @@
+***不会改变原数组
+*** 返回一个新的数组的副本（浅拷贝如果原数组进行了修改则副本也是会变化）
+Array.prototype.concat();
+该方法是用于合并两个或者多个数组。此方法不会更改现有空数组，而是返回一个新数组;
+eg：
+    const array1 = ['a', 'b', 'c'];
+    const array2 = ['d', 'e', 'f'];
+    const array3 = array1.concat(array2);
+    console.log(array3);
+    // expected output: Array ["a", "b", "c", "d", "e", "f"]
+语法：
+    var new_array = old_array.concat(value1[, value2[, ...[, valueN]]])    
+    
+    
+eg: 关于concat返回的副本是浅拷贝的例子
+    const array1 = ['a', 'b', 'c', {name: 16}];
+    const array2 = ['d', 'e', 'f'];
+    const array3 = array1.concat(array2);
+    array1[3].name = 10;
+    console.log(array3);  

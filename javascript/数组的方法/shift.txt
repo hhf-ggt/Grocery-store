@@ -1,0 +1,24 @@
+***改变原数组
+*** 返回被删除的那项
+**** 如果是空数组返回undefined
+从数组中删除第一个元素，此方法更改数组的长度
+const array1 = [1, 2, 3];
+
+const firstElement = array1.shift();
+
+console.log(array1);
+// expected output: Array [2, 3]
+
+console.log(firstElement);
+// expected output: 1
+
+如果数组为空则返回undefined
+
+
+var names = ["Andrew", "Edward", "Paul", "Chris" ,"John"];
+
+while( (i = names.shift()) !== undefined ) {
+    console.log(i);
+}
+// Andrew, Edward, Paul, Chris, John
+利用这个属性我们可以将一个数组删除到为空
