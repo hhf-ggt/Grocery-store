@@ -1,0 +1,17 @@
+Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
+
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
+
+
+一个新的数组实例。
+
+Array.from('foo'); 
+// [ "f", "o", "o" ]
+
+const set = new Set(['foo', 'bar', 'baz', 'foo']);
+Array.from(set);
+// [ "foo", "bar", "baz" ]

@@ -1,0 +1,23 @@
+****forEach() 被调用时，不会改变原数组，也就是调用它的数组
+forEach() 方法对数组的每个元素执行一次给定的函数。
+不会返回一个新的数组
+onst array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+
+forEach() 方法按升序为数组中含有效值的每一项执行一次 callback 函数，那些已删除或者未初始化的项将被跳过（例如在稀疏数组上）。
+
+
+是否可以跳出循环
+forEach 是无法跳出循环的
+
+可以跳出循环的
+for
+every
+some
+find
+findIndex

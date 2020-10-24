@@ -1,0 +1,12 @@
+Array.isArray() 用于确定传递的值是否是一个 Array。
+
+Array.isArray([1, 2, 3]);  
+// true
+Array.isArray({foo: 123}); 
+// false
+Array.isArray("foobar");   
+// false
+Array.isArray(undefined);  
+// false
+
+如果值是 Array，则为true; 否则为false。-
