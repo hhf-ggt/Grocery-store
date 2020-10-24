@@ -12,3 +12,6 @@ function selectSort(arr){
     }
     return arr;
 }
+
+
+// 先找到最小的 之后循环找后续剩余中最小的 插入到最前面
