@@ -1,4 +1,4 @@
-function personal(a, b, c) {
+function persona(a, b, c) {
     console.log(this.name);
 }
 
@@ -32,4 +32,4 @@ Function.prototype.MyCall = function(context) {
 //3.扩展运算符
 //let arg = [...arguments];
 
-personal.MyCall(egg, '1', '2', '3');
+persona.MyCall(egg, '1', '2', '3');
