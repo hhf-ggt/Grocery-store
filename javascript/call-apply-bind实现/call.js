@@ -7,7 +7,7 @@ let egg = {
 }
 
 // 实现改变this指向的方法之call
-Function.prototype.MyCall = function(content) {
+Function.prototype.MyCall = function(context) {
     // context 是执行上下文环境
     context = context || window
     let fn = mySymbol(context)
