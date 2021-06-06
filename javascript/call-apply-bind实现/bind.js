@@ -1,5 +1,5 @@
 // 会返回一个函数
-Function.prototype.MyBind = function(content) {
+Function.prototype.MyBind = function(context) {
    let that = this;
    let arr = Array.prototype.slice.call(arguments, 1);
    return function(arguments) {

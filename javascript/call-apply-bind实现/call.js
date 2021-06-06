@@ -1,4 +1,4 @@
-function personal(a, b, c) {
+function persona(a, b, c) {
     console.log(this.name);
 }
 
@@ -7,7 +7,7 @@ let egg = {
 }
 
 // 实现改变this指向的方法之call
-Function.prototype.MyCall = function(content) {
+Function.prototype.MyCall = function(context) {
     // context 是执行上下文环境
     context = context || window
     let fn = mySymbol(context)
@@ -32,4 +32,4 @@ Function.prototype.MyCall = function(content) {
 //3.扩展运算符
 //let arg = [...arguments];
 
-personal.MyCall(egg, '1', '2', '3');
+persona.MyCall(egg, '1', '2', '3');
