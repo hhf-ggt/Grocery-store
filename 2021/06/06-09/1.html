@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        height: 200px;
+        overflow-y: scroll;
+        padding: 20px;
+        border: 1px solid red;
+    }
+    .box li {
+        text-align: center;
+        list-style: none;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+    <div id="app">
+      <div class="box" ref="box" onscroll="this.handleScroll">
+        <li v-for="(i, index) in dataList">{{index}}---{{i}}</div>
+      </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+      el: '#app',
+      data() {
+          return {
+            dataList: []
+          }
+      },
+      created() {
+         this.genData()
+         console.log(this.$refs.box)
+         let box = document.getElementsByClassName('box')[0]
+         console.log(box.clientHeight, box.scrollTop, box.scrollHeight)
+         box.addEventListener('scroll', (e) => console.log(e.target.scrollTop))
+      },
+      methods: {
+          genData() {
+            let arr = []
+            for(let i = 0; i < 10; i++) {
+                arr.push(new Date().getTime())
+            }
+            this.dataList.push(...arr)
+          },
+          handleScroll(e) {
+            console.log(e)
+          }
+      }
+    })
+</script>
+</html>
