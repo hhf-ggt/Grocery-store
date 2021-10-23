@@ -20,3 +20,5 @@ function quickSort(x) {
     return quickSort(left).concat([PointValue], quickSort(right));
 }
 console.log(quickSort(arr));
+
+// nlog(n)
