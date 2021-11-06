@@ -82,4 +82,7 @@
     39.git tag -d [tag] 删除本地tag
     
     40.git push [remote] [tag] 提交到远程tag
+
+    41.git cherry-pick hash1 hash2 hash3 ...
+    # 合并某几次commit
 #### [git文档](https://git-scm.com/book/en/v2)
